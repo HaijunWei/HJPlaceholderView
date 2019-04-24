@@ -67,7 +67,7 @@
 - (void)initAppearance {
     [UIView appearance].hj_noDataImage = [UIImage imageNamed:@"none_content"];
     [UIView appearance].hj_noDataMessageText = @"无相关数据";
-    [UIView appearance].hj_dataPlaceholderAnimator = [HJPlaceholderFedeAnimator new];
+    [UIView appearance].hj_placeholderAnimator = [HJPlaceholderFedeAnimator new];
     [UIView appearance].hj_loadingMessageText = @"加载中...";
     [HJNormalPlaceholderView appearance].operaButtonTitleFont = [UIFont boldSystemFontOfSize:16];
     [HJNormalPlaceholderView appearance].operaButtonBackgroundColor = [UIColor clearColor];

@@ -15,13 +15,13 @@
     HJNormalPlaceholderView *placeholderView = [HJNormalPlaceholderView new];
     placeholderView.imageView.image = self.hj_noDataImage ? : [UIView appearance].hj_noDataImage;
     placeholderView.textLabel.text = self.hj_noDataMessageText ? : [UIView appearance].hj_noDataMessageText;
-    [self hj_showDataPlaceholderView:placeholderView animated:YES];
+    [self hj_showPlaceholderView:placeholderView animated:YES];
 }
 
 - (void)hj_showLoadingView {
     HJLoadingPlaceholderView *placeholderView = [HJLoadingPlaceholderView new];
     placeholderView.textLabel.text = self.hj_loadingMessageText ? : [UIView appearance].hj_loadingMessageText;
-    [self hj_showDataPlaceholderView:placeholderView animated:YES];
+    [self hj_showPlaceholderView:placeholderView animated:YES];
 }
 
 - (void)hj_showNoNetworkView:(void (^)(void))operaBlock {
@@ -30,7 +30,7 @@
     placeholderView.textLabel.text = self.hj_noNetworkMessageText ? : [UIView appearance].hj_noNetworkMessageText;
     [placeholderView.operaButton setTitle:self.hj_noNetworkOperaTitle ? : [UIView appearance].hj_noNetworkOperaTitle forState:UIControlStateNormal];
     placeholderView.operaBlock = operaBlock;
-    [self hj_showDataPlaceholderView:placeholderView animated:YES];
+    [self hj_showPlaceholderView:placeholderView animated:YES];
 }
 
 - (void)hj_showPlaceholderView:(UIImage *)image messageText:(NSString *)messageText operaTitle:(NSString *)operaTitle operaBlock:(void (^)(void))operaBlock {
@@ -39,43 +39,43 @@
     placeholderView.textLabel.text = messageText;
     placeholderView.operaBlock = operaBlock;
     [placeholderView.operaButton setTitle:operaTitle forState:UIControlStateNormal];
-    [self hj_showDataPlaceholderView:placeholderView animated:YES];
+    [self hj_showPlaceholderView:placeholderView animated:YES];
 }
 
 #pragma mark - Base
 
-- (void)hj_showDataPlaceholderView:(HJBasePlaceholderView *)view {
-    [self hj_showDataPlaceholderView:view animated:YES];
+- (void)hj_showPlaceholderView:(HJBasePlaceholderView *)view {
+    [self hj_showPlaceholderView:view animated:YES];
 }
 
-- (void)hj_showDataPlaceholderView:(HJBasePlaceholderView *)view animated:(BOOL)animated {
-    [self hj_showDataPlaceholderView:view animator:animated ? (self.hj_dataPlaceholderAnimator ? : [UIView appearance].hj_dataPlaceholderAnimator) : nil];
+- (void)hj_showPlaceholderView:(HJBasePlaceholderView *)view animated:(BOOL)animated {
+    [self hj_showPlaceholderView:view animator:animated ? (self.hj_placeholderAnimator ? : [UIView appearance].hj_placeholderAnimator) : nil];
 }
 
-- (void)hj_showDataPlaceholderView:(HJBasePlaceholderView *)view animator:(id<HJPlaceholderAnimator>)animator {
-    if (self.hj_dataPlaceholderView) { return; }
-    self.hj_dataPlaceholderView = view;
-    [self addSubview:self.hj_dataPlaceholderView];
+- (void)hj_showPlaceholderView:(HJBasePlaceholderView *)view animator:(id<HJPlaceholderAnimator>)animator {
+    if (self.hj_placeholderView) { return; }
+    self.hj_placeholderView = view;
+    [self addSubview:self.hj_placeholderView];
     CGRect frame = self.bounds;
     UIEdgeInsets margin = self.hj_placeholderAdjustedMargin;
     frame.origin.x = margin.left;
     frame.origin.y = margin.top;
     frame.size.width -= margin.left + margin.right;
     frame.size.height -= margin.top + margin.bottom;
-    self.hj_dataPlaceholderView.frame = frame;
-    self.hj_dataPlaceholderView.backgroundColor = self.backgroundColor;
-    self.hj_dataPlaceholderView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.hj_currentDataPlaceholderAnimator = animator;
+    self.hj_placeholderView.frame = frame;
+    self.hj_placeholderView.backgroundColor = self.backgroundColor;
+    self.hj_placeholderView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.hj_currentPlaceholderAnimator = animator;
     if (animator) {
         [animator dataPlaceholderWillShow:view completion:^{}];
     }
 }
 
-- (void)hj_hideDataPlaceholderView {
-    HJBasePlaceholderView *placeholderView = self.hj_dataPlaceholderView;
-    id<HJPlaceholderAnimator> animator = self.hj_currentDataPlaceholderAnimator;
-    self.hj_dataPlaceholderView = nil;
-    self.hj_currentDataPlaceholderAnimator = nil;
+- (void)hj_hidePlaceholderView {
+    HJBasePlaceholderView *placeholderView = self.hj_placeholderView;
+    id<HJPlaceholderAnimator> animator = self.hj_currentPlaceholderAnimator;
+    self.hj_placeholderView = nil;
+    self.hj_currentPlaceholderAnimator = nil;
     if (animator) {
         [animator dataPlaceholderWillHide:placeholderView completion:^{
             [placeholderView removeFromSuperview];
@@ -87,32 +87,32 @@
 
 #pragma mark - Getter & Setter
 
-static char kDataPlaceholderView;
+static char kPlaceholderView;
 static char kNoDataImage;
 static char kNoDataMessageText;
 static char kNoNetworkImage;
 static char kNoNetworkMessageText;
 static char kNoNetworkOperaTitle;
-static char kDataPlaceholderAnimator;
-static char kCurrentDataPlaceholderAnimator;
+static char kPlaceholderAnimator;
+static char kCurrentPlaceholderAnimator;
 static char kPlaceholderAdjustedMargin;
 static char kLoadingMessageText;
 
 
-- (void)setHj_dataPlaceholderView:(HJBasePlaceholderView *)hj_dataPlaceholderView {
-    objc_setAssociatedObject(self, &kDataPlaceholderView, hj_dataPlaceholderView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setHj_placeholderView:(HJBasePlaceholderView *)hj_placeholderView {
+    objc_setAssociatedObject(self, &kPlaceholderView, hj_placeholderView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (HJBasePlaceholderView *)hj_dataPlaceholderView {
-    return objc_getAssociatedObject(self, &kDataPlaceholderView);
+- (HJBasePlaceholderView *)hj_placeholderView {
+    return objc_getAssociatedObject(self, &kPlaceholderView);
 }
 
-- (void)setHj_dataPlaceholderAnimator:(id<HJPlaceholderAnimator>)hj_dataPlaceholderAnimator {
-    objc_setAssociatedObject(self, &kDataPlaceholderAnimator, hj_dataPlaceholderAnimator, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setHj_placeholderAnimator:(id<HJPlaceholderAnimator>)hj_placeholderAnimator {
+    objc_setAssociatedObject(self, &kPlaceholderAnimator, hj_placeholderAnimator, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (id<HJPlaceholderAnimator>)hj_dataPlaceholderAnimator {
-    return objc_getAssociatedObject(self, &kDataPlaceholderAnimator);
+- (id<HJPlaceholderAnimator>)hj_placeholderAnimator {
+    return objc_getAssociatedObject(self, &kPlaceholderAnimator);
 }
 
 - (void)setHj_noDataImage:(UIImage *)hj_noDataImage {
@@ -155,12 +155,12 @@ static char kLoadingMessageText;
     return objc_getAssociatedObject(self, &kNoNetworkOperaTitle);
 }
 
-- (void)setHj_currentDataPlaceholderAnimator:(id<HJPlaceholderAnimator>)hj_currentDataPlaceholderAnimator {
-    objc_setAssociatedObject(self, &kCurrentDataPlaceholderAnimator, hj_currentDataPlaceholderAnimator, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setHj_currentPlaceholderAnimator:(id<HJPlaceholderAnimator>)hj_currentPlaceholderAnimator {
+    objc_setAssociatedObject(self, &kCurrentPlaceholderAnimator, hj_currentPlaceholderAnimator, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (id<HJPlaceholderAnimator>)hj_currentDataPlaceholderAnimator {
-    return objc_getAssociatedObject(self, &kCurrentDataPlaceholderAnimator);
+- (id<HJPlaceholderAnimator>)hj_currentPlaceholderAnimator {
+    return objc_getAssociatedObject(self, &kCurrentPlaceholderAnimator);
 }
 
 - (void)setHj_placeholderAdjustedMargin:(UIEdgeInsets)hj_placeholderAdjustedMargin {

@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 无数据提示文本
 @property (nonatomic, copy) NSString *_Nullable hj_noDataMessageText UI_APPEARANCE_SELECTOR;
 /// 占位视图显示隐藏动画
-@property (nonatomic, strong) id<HJPlaceholderAnimator> _Nullable hj_dataPlaceholderAnimator UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong) id<HJPlaceholderAnimator> _Nullable hj_placeholderAnimator UI_APPEARANCE_SELECTOR;
 
 /// 网络错误占位图
 @property (nonatomic, strong) UIImage *_Nullable hj_noNetworkImage UI_APPEARANCE_SELECTOR;
@@ -63,9 +63,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Base
 
-- (void)hj_showDataPlaceholderView:(HJBasePlaceholderView *)view;
+- (void)hj_showPlaceholderView:(HJBasePlaceholderView *)view;
 
-- (void)hj_showDataPlaceholderView:(HJBasePlaceholderView *)view animated:(BOOL)animated;
+- (void)hj_showPlaceholderView:(HJBasePlaceholderView *)view animated:(BOOL)animated;
 
 /**
  显示占位视图，所有占位视图显示都需调用此方法
@@ -73,12 +73,12 @@ NS_ASSUME_NONNULL_BEGIN
  @param view 占位视图
  @param animator 动画器
  */
-- (void)hj_showDataPlaceholderView:(HJBasePlaceholderView *)view animator:(id<HJPlaceholderAnimator> _Nullable)animator;
+- (void)hj_showPlaceholderView:(HJBasePlaceholderView *)view animator:(id<HJPlaceholderAnimator> _Nullable)animator;
 
 /**
  销毁占位视图
  */
-- (void)hj_hideDataPlaceholderView;
+- (void)hj_hidePlaceholderView;
 
 @end
 

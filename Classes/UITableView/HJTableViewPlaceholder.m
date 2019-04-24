@@ -58,7 +58,7 @@
         [self.placeholderHeights setObject:@(CGRectGetHeight(placeholderView.bounds)) forKey:@(indexPath.section)];
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        [cell.contentView hj_showDataPlaceholderView:placeholderView animated:NO];
+        [cell.contentView hj_showPlaceholderView:placeholderView animated:NO];
         return cell;
     }
     return [self.dataSource tableView:tableView cellForRowAtIndexPath:indexPath];
