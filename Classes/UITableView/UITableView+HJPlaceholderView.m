@@ -36,6 +36,7 @@
 #pragma mark - Property
 
 static char kDataPlaceholder;
+static char kPlaceholderViewHeight;
 
 - (void)setHj_dataPlaceholder:(HJTableViewPlaceholder *)hj_dataPlaceholder {
     objc_setAssociatedObject(self, &kDataPlaceholder, hj_dataPlaceholder, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -48,6 +49,15 @@ static char kDataPlaceholder;
         [self setHj_dataPlaceholder:placeholder];
     }
     return placeholder;
+}
+
+- (void)setHj_placeholderViewHeight:(CGFloat)hj_placeholderViewHeight {
+    objc_setAssociatedObject(self, &kPlaceholderViewHeight, @(hj_placeholderViewHeight), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (CGFloat)hj_placeholderViewHeight {
+    NSNumber *number = objc_getAssociatedObject(self, &kPlaceholderViewHeight);
+    return number ? number.floatValue : 0;
 }
 
 @end

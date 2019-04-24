@@ -16,6 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface UITableView (HJPlaceholderView)
 
+/// 占位视图默认高度，默认 = 0，如果为0，将使用tableView高度
+@property (nonatomic, assign) CGFloat hj_placeholderViewHeight;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -7,6 +7,7 @@
 #import "HJTableViewPlaceholder.h"
 #import "HJNormalPlaceholderView.h"
 #import "UIView+HJPlaceholderView.h"
+#import "UITableView+HJPlaceholderView.h"
 
 @interface HJTableViewPlaceholder ()
 
@@ -97,9 +98,12 @@
 
 - (HJBasePlaceholderView *)tableView:(UITableView *)tableView dataPlaceholderViewAtSection:(NSInteger)section {
     HJNormalPlaceholderView *view = [HJNormalPlaceholderView new];
-    CGFloat height = CGRectGetHeight(tableView.bounds);
-    if (@available(iOS 11.0, *)) { height -= tableView.adjustedContentInset.top; }
-    else { height -= tableView.contentInset.top; }
+    CGFloat height = tableView.hj_placeholderViewHeight;
+    if (height <= 0) {
+        height = CGRectGetHeight(tableView.bounds);
+        if (@available(iOS 11.0, *)) { height -= tableView.adjustedContentInset.top; }
+        else { height -= tableView.contentInset.top; }
+    }
     view.frame = CGRectMake(0, 0, 0, height);
     view.imageView.image = tableView.hj_noDataImage;
     view.textLabel.text = tableView.hj_noDataMessageText;
