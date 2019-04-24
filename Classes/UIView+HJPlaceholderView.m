@@ -53,7 +53,7 @@
 }
 
 - (void)hj_showPlaceholderView:(HJBasePlaceholderView *)view animator:(id<HJPlaceholderAnimator>)animator {
-    if (self.hj_placeholderView) { return; }
+    if (self.hj_placeholderView) { [self hj_hidePlaceholderView]; }
     self.hj_placeholderView = view;
     [self addSubview:self.hj_placeholderView];
     CGRect frame = self.bounds;

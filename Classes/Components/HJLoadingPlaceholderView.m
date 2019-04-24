@@ -42,6 +42,7 @@
 
 - (void)initialize {
     _progressSize = 40;
+    _progressLineWidth = 3;
     _messageTextFont = [UIFont systemFontOfSize:14];
     _messageTextColor = [UIColor colorWithRed:153 / 255.0 green:153 / 255.0 blue:153 / 255.0 alpha:1];
 }
