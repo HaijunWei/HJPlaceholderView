@@ -87,7 +87,7 @@
     if ([self.dataSource respondsToSelector:@selector(tableView:canEditRowAtIndexPath:)]) {
         return [self.dataSource tableView:tableView canEditRowAtIndexPath:indexPath];
     }
-    return NO;
+    return YES;
 }
 
 #pragma mark - HJTableViewPlaceholderDelegate
