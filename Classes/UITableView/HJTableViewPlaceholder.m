@@ -97,7 +97,10 @@
 
 - (HJBasePlaceholderView *)tableView:(UITableView *)tableView dataPlaceholderViewAtSection:(NSInteger)section {
     HJNormalPlaceholderView *view = [HJNormalPlaceholderView new];
-    view.frame = CGRectMake(0, 0, 0, 300);
+    CGFloat height = CGRectGetHeight(tableView.bounds);
+    if (@available(iOS 11.0, *)) { height -= tableView.adjustedContentInset.top; }
+    else { height -= tableView.contentInset.top; }
+    view.frame = CGRectMake(0, 0, 0, height);
     view.imageView.image = tableView.hj_noDataImage;
     view.textLabel.text = tableView.hj_noDataMessageText;
     return view;

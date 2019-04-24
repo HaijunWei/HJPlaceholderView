@@ -67,6 +67,8 @@
 
 - (void)setLineWidth:(CGFloat)lineWidth {
     _lineWidth = lineWidth;
+    self.backLayer.lineWidth = lineWidth;
+    self.foreLayer.lineWidth = lineWidth;
     [self setNeedsLayout];
 }
 
@@ -86,6 +88,5 @@
     _progress = progress;
     self.foreLayer.strokeEnd = progress;
 }
-
 
 @end

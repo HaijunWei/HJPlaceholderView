@@ -65,10 +65,9 @@
 #pragma mark - Init
 
 - (void)initAppearance {
+    [HJPlaceholderViewUtils applyDefaultResource];
     [UIView appearance].hj_noDataImage = [UIImage imageNamed:@"none_content"];
-    [UIView appearance].hj_noDataMessageText = @"无相关数据";
-    [UIView appearance].hj_placeholderAnimator = [HJPlaceholderFedeAnimator new];
-    [UIView appearance].hj_loadingMessageText = @"加载中...";
+    [UIView appearance].hj_noNetworkImage = [UIImage imageNamed:@"none_network"];
     [HJNormalPlaceholderView appearance].operaButtonTitleFont = [UIFont boldSystemFontOfSize:16];
     [HJNormalPlaceholderView appearance].operaButtonBackgroundColor = [UIColor clearColor];
     [HJNormalPlaceholderView appearance].operaButtonTitleColor = [UIColor redColor];
@@ -76,6 +75,7 @@
     [HJNormalPlaceholderView appearance].operaButtonCornerRadius = 10;
     [HJNormalPlaceholderView appearance].operaButtonBorderColor = [UIColor redColor];
     [HJLoadingPlaceholderView appearance].progressForeColor = [UIColor blackColor];
+    [HJLoadingPlaceholderView appearance].progressLineWidth = 1;
 }
 
 @end

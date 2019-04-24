@@ -7,7 +7,9 @@
 #import "HJNormalPlaceholderView.h"
 #import "HJLoadingPlaceholderView.h"
 
-#import "HJPlaceholderFedeAnimator.h"
+#import "HJPlaceholderFadeAnimator.h"
 
 #import "UIView+HJPlaceholderView.h"
 #import "UITableView+HJPlaceholderView.h"
+
+#import "HJPlaceholderViewUtils.h"

@@ -49,6 +49,7 @@
 - (void)initSubviews {
     self.progressLayer = [HJCircleProgressLayer new];
     self.progressLayer.progress = 0.4;
+    self.progressLayer.lineWidth = self.progressLineWidth;
     [self.contentView.layer addSublayer:self.progressLayer];
     
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
@@ -74,6 +75,11 @@
 - (void)setProgressBackColor:(UIColor *)progressBackColor {
     _progressBackColor = progressBackColor;
     self.progressLayer.backColor = progressBackColor;
+}
+
+- (void)setProgressLineWidth:(CGFloat)progressLineWidth {
+    _progressLineWidth = progressLineWidth;
+    self.progressLayer.lineWidth = progressLineWidth;
 }
 
 - (void)setMessageTextFont:(UIFont *)messageTextFont {

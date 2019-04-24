@@ -18,7 +18,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    [self.view hj_showPlaceholderView:[UIImage imageNamed:@"none_network"] messageText:@"您的网络状态不太好..." operaTitle:@"重新加载" operaBlock:^{
+//    [self.view hj_showPlaceholderView:[UIImage imageNamed:@"none_network"] messageText:@"您的网络状态不太好..." operaTitle:@"重新加载" operaBlock:^{
+//        NSLog(@"%s", __func__);
+//    }];
+    [self.view hj_showNoNetworkView:^{
         NSLog(@"%s", __func__);
     }];
 }

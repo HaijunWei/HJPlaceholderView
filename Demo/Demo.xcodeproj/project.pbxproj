@@ -13,13 +13,15 @@
 		8460383F226EFAFB0089C3E6 /* HJLoadingPlaceholderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8460383E226EFAFB0089C3E6 /* HJLoadingPlaceholderView.m */; };
 		84603842226EFE1C0089C3E6 /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84603841226EFE1C0089C3E6 /* LoadingViewController.m */; };
 		84603845226F0B590089C3E6 /* HJCircleProgressLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84603844226F0B590089C3E6 /* HJCircleProgressLayer.m */; };
+		84663E902270409800C33526 /* HJPlaceholderViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 84663E8F2270409800C33526 /* HJPlaceholderViewUtils.m */; };
+		84663E922270413500C33526 /* HJPlaceholderView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 84663E912270413500C33526 /* HJPlaceholderView.bundle */; };
+		84663E952270448300C33526 /* HJPlaceholderFadeAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 84663E932270448300C33526 /* HJPlaceholderFadeAnimator.m */; };
 		84F971F1226DC537002D43CE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F971F0226DC537002D43CE /* AppDelegate.m */; };
 		84F971F4226DC537002D43CE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F971F3226DC537002D43CE /* ViewController.m */; };
 		84F971F7226DC537002D43CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F971F5226DC537002D43CE /* Main.storyboard */; };
 		84F971F9226DC53A002D43CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84F971F8226DC53A002D43CE /* Assets.xcassets */; };
 		84F971FC226DC53A002D43CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F971FA226DC53A002D43CE /* LaunchScreen.storyboard */; };
 		84F971FF226DC53A002D43CE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F971FE226DC53A002D43CE /* main.m */; };
-		84F97218226DC549002D43CE /* HJPlaceholderFedeAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9720A226DC548002D43CE /* HJPlaceholderFedeAnimator.m */; };
 		84F97219226DC549002D43CE /* HJNormalPlaceholderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9720E226DC548002D43CE /* HJNormalPlaceholderView.m */; };
 		84F9721A226DC549002D43CE /* UITableView+HJPlaceholderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F97212226DC548002D43CE /* UITableView+HJPlaceholderView.m */; };
 		84F9721B226DC549002D43CE /* HJTableViewPlaceholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F97213226DC548002D43CE /* HJTableViewPlaceholder.m */; };
@@ -40,6 +42,11 @@
 		84603841226EFE1C0089C3E6 /* LoadingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
 		84603843226F0B590089C3E6 /* HJCircleProgressLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HJCircleProgressLayer.h; sourceTree = "<group>"; };
 		84603844226F0B590089C3E6 /* HJCircleProgressLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HJCircleProgressLayer.m; sourceTree = "<group>"; };
+		84663E8E2270409800C33526 /* HJPlaceholderViewUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HJPlaceholderViewUtils.h; sourceTree = "<group>"; };
+		84663E8F2270409800C33526 /* HJPlaceholderViewUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HJPlaceholderViewUtils.m; sourceTree = "<group>"; };
+		84663E912270413500C33526 /* HJPlaceholderView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HJPlaceholderView.bundle; sourceTree = "<group>"; };
+		84663E932270448300C33526 /* HJPlaceholderFadeAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJPlaceholderFadeAnimator.m; sourceTree = "<group>"; };
+		84663E942270448300C33526 /* HJPlaceholderFadeAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJPlaceholderFadeAnimator.h; sourceTree = "<group>"; };
 		84F971EC226DC537002D43CE /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F971EF226DC537002D43CE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		84F971F0226DC537002D43CE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -52,8 +59,6 @@
 		84F971FE226DC53A002D43CE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84F97206226DC548002D43CE /* UIView+HJPlaceholderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HJPlaceholderView.h"; sourceTree = "<group>"; };
 		84F97207226DC548002D43CE /* HJPlaceholderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJPlaceholderView.h; sourceTree = "<group>"; };
-		84F97209226DC548002D43CE /* HJPlaceholderFedeAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJPlaceholderFedeAnimator.h; sourceTree = "<group>"; };
-		84F9720A226DC548002D43CE /* HJPlaceholderFedeAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJPlaceholderFedeAnimator.m; sourceTree = "<group>"; };
 		84F9720B226DC548002D43CE /* HJPlaceholderAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJPlaceholderAnimator.h; sourceTree = "<group>"; };
 		84F9720D226DC548002D43CE /* HJNormalPlaceholderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJNormalPlaceholderView.h; sourceTree = "<group>"; };
 		84F9720E226DC548002D43CE /* HJNormalPlaceholderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJNormalPlaceholderView.m; sourceTree = "<group>"; };
@@ -138,6 +143,7 @@
 		84F97205226DC548002D43CE /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				84663E912270413500C33526 /* HJPlaceholderView.bundle */,
 				84603846226F0B660089C3E6 /* Layers */,
 				84F97208226DC548002D43CE /* Animator */,
 				84F97215226DC548002D43CE /* Base */,
@@ -146,6 +152,8 @@
 				84F9720F226DC548002D43CE /* UITableView */,
 				84F97206226DC548002D43CE /* UIView+HJPlaceholderView.h */,
 				84F97214226DC548002D43CE /* UIView+HJPlaceholderView.m */,
+				84663E8E2270409800C33526 /* HJPlaceholderViewUtils.h */,
+				84663E8F2270409800C33526 /* HJPlaceholderViewUtils.m */,
 			);
 			name = Classes;
 			path = ../../Classes;
@@ -155,8 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				84F9720B226DC548002D43CE /* HJPlaceholderAnimator.h */,
-				84F97209226DC548002D43CE /* HJPlaceholderFedeAnimator.h */,
-				84F9720A226DC548002D43CE /* HJPlaceholderFedeAnimator.m */,
+				84663E942270448300C33526 /* HJPlaceholderFadeAnimator.h */,
+				84663E932270448300C33526 /* HJPlaceholderFadeAnimator.m */,
 			);
 			path = Animator;
 			sourceTree = "<group>";
@@ -249,6 +257,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84663E922270413500C33526 /* HJPlaceholderView.bundle in Resources */,
 				84F971FC226DC53A002D43CE /* LaunchScreen.storyboard in Resources */,
 				84F971F9226DC53A002D43CE /* Assets.xcassets in Resources */,
 				84F971F7226DC537002D43CE /* Main.storyboard in Resources */,
@@ -264,10 +273,11 @@
 			files = (
 				8460383F226EFAFB0089C3E6 /* HJLoadingPlaceholderView.m in Sources */,
 				84F9721C226DC549002D43CE /* UIView+HJPlaceholderView.m in Sources */,
-				84F97218226DC549002D43CE /* HJPlaceholderFedeAnimator.m in Sources */,
 				84603842226EFE1C0089C3E6 /* LoadingViewController.m in Sources */,
+				84663E902270409800C33526 /* HJPlaceholderViewUtils.m in Sources */,
 				84F9721B226DC549002D43CE /* HJTableViewPlaceholder.m in Sources */,
 				84F971F4226DC537002D43CE /* ViewController.m in Sources */,
+				84663E952270448300C33526 /* HJPlaceholderFadeAnimator.m in Sources */,
 				84F9721D226DC549002D43CE /* HJBasePlaceholderView.m in Sources */,
 				84F97219226DC549002D43CE /* HJNormalPlaceholderView.m in Sources */,
 				84603845226F0B590089C3E6 /* HJCircleProgressLayer.m in Sources */,

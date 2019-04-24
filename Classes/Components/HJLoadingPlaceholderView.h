@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIColor *progressForeColor UI_APPEARANCE_SELECTOR;
 /// 进度条背景色
 @property (nonatomic, strong) UIColor *progressBackColor UI_APPEARANCE_SELECTOR;
+/// 进度条线条宽度
+@property (nonatomic, assign) CGFloat progressLineWidth UI_APPEARANCE_SELECTOR;
 /// 消息文本字体
 @property (nonatomic, strong) UIFont *messageTextFont UI_APPEARANCE_SELECTOR;
 /// 消息文本颜色
