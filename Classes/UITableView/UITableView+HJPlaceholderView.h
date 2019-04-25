@@ -18,6 +18,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 占位视图默认高度，默认 = 0，如果为0，将使用tableView高度
 @property (nonatomic, assign) CGFloat hj_placeholderViewHeight;
+/*
+ 是否允许显示占位视图，优先级最高，如果此属性为NO delegate会被忽略，
+ 注意：添加此属性的原因是TableView默认会有占位视图，有些需求可能是在加载数据之后才显示占位视图
+ */
+@property (nonatomic, assign) BOOL hj_isAllowShowPlaceholder;
 
 @end
 

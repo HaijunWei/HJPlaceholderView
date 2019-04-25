@@ -45,6 +45,7 @@
 #pragma mark - Actions
 
 - (void)addClick {
+    self.tableView.hj_isAllowShowPlaceholder = YES;
     [self.dataArray addObject:@"1"];
     [self.tableView reloadData];
 }

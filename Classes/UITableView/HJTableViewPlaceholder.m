@@ -33,7 +33,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSInteger number = [self.dataSource tableView:tableView numberOfRowsInSection:section];
-    if (number == 0 && self.placeholderDelegate != nil) {
+    if (number == 0 && tableView.hj_isAllowShowPlaceholder && self.placeholderDelegate != nil) {
         BOOL isShow = NO;
         if ([self.placeholderDelegate respondsToSelector:@selector(tableview:shouldShowDataPlaceholderViewAtSection:)]) {
             isShow = [self.placeholderDelegate tableview:tableView shouldShowDataPlaceholderViewAtSection:section];

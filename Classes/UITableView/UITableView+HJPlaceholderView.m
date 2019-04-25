@@ -37,6 +37,7 @@
 
 static char kDataPlaceholder;
 static char kPlaceholderViewHeight;
+static char kIsAllowShowPlaceholder;
 
 - (void)setHj_dataPlaceholder:(HJTableViewPlaceholder *)hj_dataPlaceholder {
     objc_setAssociatedObject(self, &kDataPlaceholder, hj_dataPlaceholder, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -58,6 +59,15 @@ static char kPlaceholderViewHeight;
 - (CGFloat)hj_placeholderViewHeight {
     NSNumber *number = objc_getAssociatedObject(self, &kPlaceholderViewHeight);
     return number ? number.floatValue : 0;
+}
+
+- (void)setHj_isAllowShowPlaceholder:(BOOL)hj_isAllowShowPlaceholder {
+    objc_setAssociatedObject(self, &kIsAllowShowPlaceholder, @(hj_isAllowShowPlaceholder), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (BOOL)hj_isAllowShowPlaceholder {
+    NSNumber *number = objc_getAssociatedObject(self, &kIsAllowShowPlaceholder);
+    return number ? number.boolValue : NO;
 }
 
 @end
