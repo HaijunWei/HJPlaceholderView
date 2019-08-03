@@ -59,6 +59,7 @@
         [self.placeholderHeights setObject:@(CGRectGetHeight(placeholderView.bounds)) forKey:@(indexPath.section)];
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.contentView.backgroundColor = tableView.backgroundColor;
         [cell.contentView hj_showPlaceholderView:placeholderView animated:NO];
         return cell;
     }
@@ -99,10 +100,14 @@
 - (HJBasePlaceholderView *)tableView:(UITableView *)tableView dataPlaceholderViewAtSection:(NSInteger)section {
     HJNormalPlaceholderView *view = [HJNormalPlaceholderView new];
     CGFloat height = tableView.hj_placeholderViewHeight;
+    CGFloat insetTop = tableView.contentInset.top;
+    CGFloat insetBottom = tableView.contentInset.bottom;
+    if (@available(iOS 11.0, *)) {
+        insetTop = tableView.adjustedContentInset.top;
+        insetBottom = tableView.adjustedContentInset.bottom;
+    }
     if (height <= 0) {
-        height = CGRectGetHeight(tableView.bounds);
-        if (@available(iOS 11.0, *)) { height -= tableView.adjustedContentInset.top; }
-        else { height -= tableView.contentInset.top; }
+        height = CGRectGetHeight(tableView.bounds) - insetTop - insetBottom;
     }
     view.frame = CGRectMake(0, 0, 0, height);
     view.imageView.image = tableView.hj_noDataImage;
